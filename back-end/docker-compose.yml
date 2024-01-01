@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  postgres-db:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: Poem
+     
