@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="">
+</head>
+<body id="admin-body">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="About"></a>ABOUT</li>
+                <li><a href=""></a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="admin-main">
+        <div id="add-poem-container">
+            <h1>ADD POEM</h1>
+            <form id="poem-form">
+                <label for="title">Title:</label>
+                <input class="add_input" type="text" id="poem-title" name="title" required placeholder="Enter title here">
+                <label for="poem">Poem:</label>
+                <textarea class="add_input" id="poem" name="poem" rows="4" required placeholder="Enter the poem here"></textarea>
+                <label for="pub-date">Publication Date:</label>
+                <input class="add_input" type="date" id="pub-date" name="pub-date" required>
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre" required>
+                    <option value="" disabled selected>Select a genre</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Love">Love</option>
+                    <option value="Inspiration">Inspiration</option>
+                    <option value="Fantasy">Fantasy</option>
+                </select>
+                <button type="submit" class="additional">Submit</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+
+    </footer>
+</body>
+</html>
