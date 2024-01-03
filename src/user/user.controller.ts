@@ -1,16 +1,20 @@
-/* eslint-disable prettier/prettier */
-import { Controller, Get, Patch, UseGuards} from '@nestjs/common';
-import { User } from '@prisma/client';
-import { GetUser } from 'src/auth/decorator/user.decorator';
-import { jwtGuard } from 'src/auth/guard/jwt.guard';
-@Controller('users')
-@UseGuards(jwtGuard)
+import { Get, Body, Controller, Patch, UseGuards } from '@nestjs/common';
 
+import { UserService } from './user.service';
+import { jwtGuard } from 'src/auth/guard/jwt.guard';
+import { GetUser } from 'src/auth/decorator/user.decorator';
+import { UpdatePoemDto } from 'src/poem/dto/updatePoe.dto';
+import { User } from '@prisma/client';
+@UseGuards(jwtGuard)
+@Controller('users')
 export class UserController {
-  @Get('admin')
-  getAdmin(@GetUser() user: User) {
-    return user;
+  constructor(private clientService: UserService) {}
+  @Get('poet')
+  getPoeter(@GetUser() client: User) {
+    return client;
   }
   @Patch()
-  updateUser() {}
+  UpdateUser(@GetUser('id') userId: number, @Body() dto: UpdatePoemDto) {
+    return this.clientService.UpdateUser(userId, dto);
+  }
 }

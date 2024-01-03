@@ -31,7 +31,6 @@ CREATE TABLE "poems" (
     "updatedAt" TIMESTAMP(3) NOT NULL,
     "title" TEXT NOT NULL,
     "body" TEXT NOT NULL,
-    "userId" INTEGER NOT NULL,
 
     CONSTRAINT "poems_pkey" PRIMARY KEY ("id")
 );
@@ -40,4 +39,3 @@ CREATE TABLE "poems" (
 CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 
 -- AddForeignKey
-ALTER TABLE "poems" ADD CONSTRAINT "poems_userId_fkey" FOREIGN KEY ("userId") REFERENCES "users"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
