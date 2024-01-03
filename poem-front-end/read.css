@@ -1,7 +1,7 @@
 body{
     height: 100vh;
     display: grid;
-    grid-template-rows: 10% 5% 85%;
+    grid-template-rows: 10% 10% 5% 85%;
     background-image: url(images/login-background.jpg);
 }
 
