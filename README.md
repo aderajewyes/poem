@@ -1,4 +1,8 @@
 title poem management system
+
+
+Description
+
 Poem Management Web Overview The Poem Management Web is a platform designed to bridge the gap between poets and poetry enthusiasts. This web application provides a space for poets to share their creativity by posting their poems, while also offering a curated collection of poems for readers to explore and enjoy. Deployed for seamless accessibility, this platform serves as a centralized hub for the poetry community, addressing the challenge of discovering and accessing quality poems.
 
 Features
