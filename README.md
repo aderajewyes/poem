@@ -1,73 +1,26 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+title poem management system
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Description
 
-## Description
+Poem Management Web Overview The Poem Management Web is a platform designed to bridge the gap between poets and poetry enthusiasts. This web application provides a space for poets to share their creativity by posting their poems, while also offering a curated collection of poems for readers to explore and enjoy. Deployed for seamless accessibility, this platform serves as a centralized hub for the poetry community, addressing the challenge of discovering and accessing quality poems.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Features
 
-## Installation
+Poem Submission: Poets can easily contribute to the platform by submitting their own poems, allowing for a diverse and constantly growing collection of creative works. User-Friendly Interface: The intuitive and aesthetically pleasing interface ensures a pleasant experience for both poets and readers, making it easy to navigate through poems and contribute content. Search and Discovery: Readers can explore the extensive collection of poems using search and discovery features, making it effortless to find poems based on themes, genres, or authors. Engagement and Interaction: The platform encourages community engagement by providing features such as likes, comments, and sharing options. Readers can express their appreciation, provide feedback, and connect with poets.
 
-```bash
-$ yarn install
-```
+How It Works
 
-## Running the app
+Poet Registration: Poets can sign up and create an account to start sharing their poems with a global audience. Poem Submission: Poets can submit their poems through a user-friendly interface, including options to add tags and categorize their work for easy discovery. Browse and Discover: Poetry enthusiasts can explore a vast collection of poems, searching for specific topics or discovering new and talented poets. Engagement: Readers can engage with poems by liking, commenting, and sharing their favorite works. This interaction fosters a sense of community among poetry lovers.
 
-```bash
-# development
-$ yarn run start
+Deployment
 
-# watch mode
-$ yarn run start:dev
+The Poem Management Web is deployed for easy access, allowing users from around the world to immerse themselves in the beauty of poetry. Whether you are a seasoned poet or someone looking for inspiration, this platform provides a dynamic and supportive environment for all. Explore the world of emotions, perspectives, and creativity through the Poem Management Web. Start your poetic journey today!
 
-# production mode
-$ yarn run start:prod
-```
+members ID
 
-## Test
+1.ADERAJEW YESHIWENDM UGR/3662/14
 
-```bash
-# unit tests
-$ yarn run test
+2.MESAY ABEBE UGR/1930/14
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+3.YONATAN ALEBACHEW UGR/4429/14
