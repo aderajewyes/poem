@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="">
+</head>
+<body id="admin-body">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="admin-page.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="add.html">ADD</a></li>
+                <li><a href="Edit.html">EDIT</a></li>
+                <li><a href="contact-us.html">CONTACT US</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main id="delete-main">
+        <div style="margin-top: 10px;" id="delete-search">
+            <input type="text" name="title" id="toBeDeleted">
+            <button class="additional">search</button>
+        </div>
+        <div id="delete-container">
+            <h1>which poem do you want to delete</h1>
+            <div id="toBeDeleted-container">
+            </div>
+                
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Poem Haven. All rights reserved.</p>
+    </footer>
+    <script>
+    const loadPoemOnDelete = () => {
+  var toBeDeleted = document.getElementById('toBeDeleted-container')
+  fetch('http://localhost:3000/poems', {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(res => res.json())
+    .then((data) => {
+      data.forEach(poem => {
+        const cellElement = document.createElement('button')
+        cellElement.innerText = poem.title
+        cellElement.classList.add('title_button')
+        cellElement.style.backgroundColor = 'red';
+        cellElement.id = poem.id
+        cellElement.addEventListener('click',deletePoem)
+        toBeDeleted.appendChild(cellElement)
+      });
+
+    });
+};
+
+function deletePoem(e){
+  resourceUrl = `http://localhost/3000/poems/${e.target.id}`
+  fetch(resourceUrl, {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization' : `Bearer ${localStorage.getItem('token')}`
+    },
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    console.log('Resource deleted successfully');
+})
+ .catch(error => {
+    console.error('Error:', error.message);
+ });
+ document.getElementById('toBeDeleted-container').innerHTML = ''
+ loadPoemOnDelete();
+}
+
+window.onload = function(){
+    loadPoemOnDelete();
+}
+    </script>
+</body>
+</html>
