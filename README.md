@@ -14,6 +14,7 @@ How It Works
 Poet Registration: Poets can sign up and create an account to start sharing their poems with a global audience. Poem Submission: Poets can submit their poems through a user-friendly interface, including options to add tags and categorize their work for easy discovery. Browse and Discover: Poetry enthusiasts can explore a vast collection of poems, searching for specific topics or discovering new and talented poets. Engagement: Readers can engage with poems by liking, commenting, and sharing their favorite works. This interaction fosters a sense of community among poetry lovers.
 
 
+we have used postgres as a database and prisma as a toolkit. inaddition to this we have used Docker compose as a container.
 
 members ID
 
