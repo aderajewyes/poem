@@ -13,9 +13,7 @@ How It Works
 
 Poet Registration: Poets can sign up and create an account to start sharing their poems with a global audience. Poem Submission: Poets can submit their poems through a user-friendly interface, including options to add tags and categorize their work for easy discovery. Browse and Discover: Poetry enthusiasts can explore a vast collection of poems, searching for specific topics or discovering new and talented poets. Engagement: Readers can engage with poems by liking, commenting, and sharing their favorite works. This interaction fosters a sense of community among poetry lovers.
 
-Deployment
 
-The Poem Management Web is deployed for easy access, allowing users from around the world to immerse themselves in the beauty of poetry. Whether you are a seasoned poet or someone looking for inspiration, this platform provides a dynamic and supportive environment for all. Explore the world of emotions, perspectives, and creativity through the Poem Management Web. Start your poetic journey today!
 
 members ID
 
