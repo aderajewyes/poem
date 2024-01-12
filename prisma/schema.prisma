@@ -14,10 +14,11 @@ model User {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   email String @unique
-  hash String
+  password String
   firstname String?
+  
   lastname String?
-  poems Poem[]
+  role String
   @@map("users")
 }
 model Poem {
@@ -26,8 +27,6 @@ model Poem {
   updatedAt DateTime @updatedAt
   title String
   body String
-  userId Int
-  user User @relation(fields: [userId], references: [id])
 
   @@map("poems")
 }

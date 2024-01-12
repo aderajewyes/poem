@@ -1,1 +1,3 @@
-POST http://localhost:3000/auth/signup HTTP/1.1
+GET http://localhost:3000/poems HTTP/1.1
+'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjExLCJlbWFpbCI6ImhlbGxkZXJhamV3eWVzaGlkd2VkZGFqZXdAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzA1MDAzNDg0LCJleHAiOjE3MDY3MzE0ODR9.CPK6zt_5ay1F3f2Im01Zk6IqOHaogUMGqXJkx2IKpQ8',
+

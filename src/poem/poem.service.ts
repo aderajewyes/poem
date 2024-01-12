@@ -1,47 +1,41 @@
 /* eslint-disable prettier/prettier */
 import { ForbiddenException, Injectable, NotFoundException} from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreatePoemDto } from './dto/addPoem.dto';
 import { UpdatePoemDto } from './dto/updatePoe.dto';
 @Injectable()
 export class PoemService {
   constructor(private readonly prisma: PrismaService) {}
-
-  async addPoem(userId: number, dto:CreatePoemDto) {
+  async addPoem(dto:CreatePoemDto) {
     const result = await this.prisma.poem.create({
       data:{
         title: dto.title,
         body: dto.body,
-        user: { connect: {id: userId}}
       }
     });
 
     return result;
   }
 
-  async fetchPoems(userId: number) {
+  async fetchPoems() {
     const poems = await this.prisma.poem.findMany({
-      where: {
-        userId,
-      }
+      
     })
     return poems;
   }
 
-  async fetchPoem(userId: number,poemId: number) {
+  async fetchPoem(poemId: number) {
     const poem = await this.prisma.poem.findFirst({
       where:{
-        userId,
         id: poemId
       }
     });
     return { id: poem.id, title: poem.title, body: poem.body };
   }
 
-  async updatePoem(userId:number,poemId: number, dto:UpdatePoemDto) {
+  async updatePoem(poemId: number, dto:UpdatePoemDto) {
     const updatedPoem = await this.prisma.poem.findUnique({
       where: {
-        userId,
         id: poemId
       }
     });
@@ -60,10 +54,9 @@ export class PoemService {
 
   
 
-  async removePoem(userId: number, poemId: number) {
+  async removePoem(poemId: number) {
     const result = await this.prisma.poem.delete({
       where: {
-        userId,
         id: poemId,
       },
     });

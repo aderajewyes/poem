@@ -1,51 +1,52 @@
 /* eslint-disable prettier/prettier */
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Req, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post,UseGuards } from '@nestjs/common';
 import { PoemService } from './poem.service';
 import { CreatePoemDto } from './dto/addPoem.dto';
-import { jwtGuard } from 'src/auth/guard/jwt.guard';
+import { jwtGuard } from '../auth/guard/jwt.guard';
 import { UpdatePoemDto } from './dto/updatePoe.dto';
+import { RolesGuard } from '../auth/guard/roles.guard';
+import { Roles } from '../auth/decorator/roles.decorator';
 
-@UseGuards(jwtGuard)
+@UseGuards(jwtGuard,RolesGuard)
 @Controller('poems')
 export class PoemController {
-    constructor(private poemsService:PoemService){}
-    @Post()
-  async addPoem(@Req() req, @Body() createPoemDto: CreatePoemDto) {
-    const userId = req.user.id;
+  constructor(private poemsService:PoemService){}
+  @Post()
+@Roles('admin')
+  async addPoem(@Body() createPoemDto: CreatePoemDto) {
     const result = await this.poemsService.addPoem(
-      userId, createPoemDto
+      createPoemDto
     );
 
     return result;
   }
     @Get()
-    async getAllPoems(@Req() req){
-        const userId = req.user.id;
-        const poems = await this.poemsService.fetchPoems(userId);
+
+    async getAllPoems(){
+        const poems = await this.poemsService.fetchPoems();
         return poems;
     }
     @Get(':id')
-    getPoem(@Req() req, @Param('id', ParseIntPipe) poemId:number,){
-        const userId = req.user.id;
 
-        return this.poemsService.fetchPoem(userId,poemId)
+    getPoem(@Param('id', ParseIntPipe) poemId:number,){
+
+        return this.poemsService.fetchPoem(poemId)
     }
     @Patch(':id')
+
     async updatePoem(
-        @Req() req,
         @Param('id', ParseIntPipe) poemId:number,
         @Body() dto:UpdatePoemDto,
         ) {
-            const userId = req.user.id;
 
-            return await this.poemsService.updatePoem(userId,poemId,dto)
+            return await this.poemsService.updatePoem(poemId,dto)
 
         }
     @Delete(':id')
-    async deletePoem(@Req() req, @Param('id',ParseIntPipe) poemId:number,){
-        const userId = req.user.id;
 
-        return await this.poemsService.removePoem(userId, poemId);
+    async deletePoem(@Param('id',ParseIntPipe) poemId:number,){
+
+        return await this.poemsService.removePoem(poemId);
         
     }
 

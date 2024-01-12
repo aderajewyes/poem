@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { ForbiddenException, Injectable } from "@nestjs/common";
-import { PrismaService } from "src/prisma/prisma.service";
+import { PrismaService } from "../prisma/prisma.service";
 import { AuthenticationDto } from "./dto/auth.dto";
 import * as argon from 'argon2';
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
@@ -22,14 +22,14 @@ export class AuthService{
             )
         }
         const passwordMatch = await argon.verify(
-            user.hash,dto.password
+            user.password,dto.password
         )
         if(!passwordMatch){
             throw new ForbiddenException(
                 'incorrect credentials try another'
             )
         }
-        return this.EnterToken(user.id, user.email);
+        return this.EnterToken(user.id, user.email, user.role);
     }
 
     async signup(dto: AuthenticationDto) {
@@ -37,9 +37,9 @@ export class AuthService{
           
           const user = await this.prisma.user.create({
             data: 
-            { email: dto.email, hash: await argon.hash(dto.password)},
+            { email: dto.email,role: dto.role, password: await argon.hash(dto.password)},
           });
-          return this.EnterToken(user.id,user.email);
+          return this.EnterToken(user.id,user.email, user.role);
         }catch(error){
             if (error instanceof PrismaClientKnownRequestError){
                 if(error.code === 'P2002'){
@@ -55,14 +55,18 @@ export class AuthService{
     async EnterToken(
         userId: number,
         email:string,
+        role: string
     ):Promise<{accepted_token:string}>{
         const data = {
             sub:userId,
             email,
+            role
+
+
         }
         const token = await this.jwt.signAsync(data,{
-            expiresIn:'1h',
-            secret: this.config.get('JWT_SECRET')
+            expiresIn:'20d',
+            secret: process.env.JWT_SECRET,
         })
         return {
             accepted_token:token,
